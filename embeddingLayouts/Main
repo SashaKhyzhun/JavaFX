@@ -1,0 +1,50 @@
+package Kyrsova;
+
+
+import javafx.application.*;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.stage.*;
+import javafx.scene.*;
+import javafx.scene.layout.*;
+import javafx.scene.control.*;
+
+public class Main extends Application {
+
+    Stage window;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        window = primaryStage;
+        window.setTitle("JavaFX the new Boston");
+        //кнопки1
+        HBox topMenu = new HBox();
+        Button buttonA = new Button("File");
+        Button buttonB = new Button("Edit");
+        Button buttonC = new Button("View");
+        //призначаємо місце у вікні (по центру)
+        topMenu.getChildren().addAll(buttonA, buttonB, buttonC);
+        //кнопки2
+        VBox leftMenu = new VBox();
+        Button buttonD = new Button("D");
+        Button buttonE = new Button("E");
+        Button buttonF = new Button("F");
+        //призначаємо місце у вікні (зліва)
+        leftMenu.getChildren().addAll(buttonD, buttonF, buttonE);
+
+        BorderPane borderPane = new BorderPane();
+        borderPane.setTop(topMenu);
+        borderPane.setLeft(leftMenu);
+
+        Scene scene = new Scene(borderPane, 400, 500);
+        window.setScene(scene);
+        window.show();
+
+    }
+
+
+}
